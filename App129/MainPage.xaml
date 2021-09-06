@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:app125="clr-namespace:App129"
+             x:Class="App129.MainPage">
+
+    <StackLayout>
+        <StackLayout BackgroundColor="Blue">
+            <StackLayout HorizontalOptions="FillAndExpand" HeightRequest="200">
+                <Label Text="Number of cards" IsVisible="{Binding IsShowText}" TextColor="White" FontSize="Large" HorizontalOptions="Center"/>
+                <Label Text="40" IsVisible="{Binding IsShowText}"  FontSize="Header" TextColor="White" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <app125:FlipView  x:Name="FlipView1" HeightRequest="400" HorizontalOptions="Center"  IsFlipped="{Binding IsViewFlipped}" >
+                <app125:FlipView.FrontView >
+                    <Frame
+                        HeightRequest="400"
+                        Margin="10"
+                         Padding="10,0,10,10"
+                        BackgroundColor="White"
+                        CornerRadius="10"
+                        HasShadow="True">
+                        <StackLayout VerticalOptions="Center">
+                            <ImageButton 
+                                Command="{Binding TruthCommand}"
+                                
+                                HorizontalOptions="Center"
+                                Source="Truth.png"/>
+                            <Label
+                            
+                                 FontAttributes="Bold"
+                                 FontSize="Large"
+                                 HorizontalTextAlignment="Center"
+                                 Text="Truth"
+                                 TextColor="Blue"
+                                 VerticalTextAlignment="Center" />
+                            <ImageButton 
+                                Command="{Binding DareCommand}"
+                                
+                                 HorizontalOptions="Center"
+                                Source="dare.png"/>
+                            <Label
+                            
+                                 FontAttributes="Bold"
+                                 FontSize="Large"
+                                 HorizontalTextAlignment="Center"
+                                 Text="Dare"
+                                 TextColor="Blue"
+                                 VerticalTextAlignment="Center" />
+                        </StackLayout>
+
+
+                    </Frame>
+                </app125:FlipView.FrontView>
+                <app125:FlipView.BackView>
+                    <Frame
+                         HeightRequest="400"
+                        
+                        Margin="10"
+                        Padding="10,0,10,10"
+                        BackgroundColor="White"
+                        CornerRadius="10"
+                        HasShadow="True">
+                        <StackLayout   x:Name="mysl">
+                            <Label IsVisible="{Binding IsTruthShow}" Text="Verdad" FontSize="50" TextColor="Blue" HorizontalOptions="Center"/>
+                            <Label IsVisible="{Binding IsTruthShow}" Text="this is verdad text" FontSize="20" TextColor="Blue" HorizontalOptions="Center"/>
+
+                            <Editor IsVisible="{Binding IsTruthShow}" Placeholder="Entry your answer" PlaceholderColor="Olive" HeightRequest="200" HorizontalOptions="FillAndExpand" />
+                            <Button IsVisible="{Binding IsTruthShow}" Command="{Binding BackCommand}" Text="send" CornerRadius="30" BackgroundColor="Purple"></Button>
+
+
+                            <Label IsVisible="{Binding IsDareShow}" Text="Dare" FontSize="50" TextColor="Blue" HorizontalOptions="Center"/>
+                            <Label IsVisible="{Binding IsDareShow}" Text="this is dare text" FontSize="20" TextColor="Blue" HorizontalOptions="Center"/>
+                            <Button IsVisible="{Binding IsDareShow}"  Command="{Binding BackCommand}"  Text="Alla voy" CornerRadius="30" BackgroundColor="Purple" ></Button>
+                            <Button IsVisible="{Binding IsDareShow}" Text="Mas tarde" CornerRadius="30" BackgroundColor="Purple" ></Button>
+
+                            <Button IsVisible="{Binding IsDareShow}" Text="Ni de cona" CornerRadius="30" BackgroundColor="Purple" ></Button>
+
+                        </StackLayout>
+
+
+                    </Frame>
+                </app125:FlipView.BackView>
+
+
+            </app125:FlipView>
+
+
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
